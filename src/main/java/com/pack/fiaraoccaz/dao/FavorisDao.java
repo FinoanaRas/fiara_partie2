@@ -16,4 +16,13 @@ public class FavorisDao {
     public void save(Favoris favoris){
         favorisRepository.save(favoris);
     }
+
+    public int findByUserAndAnnonce(int iduser, int idannonce){
+        Favoris fav = favorisRepository.findByIduserAndIdannonce(iduser, idannonce);
+        int result = 0;
+        if(fav != null){
+            result = 1;
+        }
+        return result;
+    }
 }
