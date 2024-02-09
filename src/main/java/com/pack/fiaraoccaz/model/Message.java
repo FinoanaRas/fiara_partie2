@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Document(collection = "message")
 public class Message {
     @Id
@@ -12,7 +14,7 @@ public class Message {
     int user1;
     int user2;
     String message;
-    Date date_envoi;
+    String date_envoi;
 
     public String getId() {
         return id;
@@ -38,10 +40,10 @@ public class Message {
     public void setMessage(String message) {
         this.message = message;
     }
-    public Date getDate_envoi() {
+    public String getDate_envoi() {
         return date_envoi;
     }
-    public void setDate_envoi(Date date_envoi) {
+    public void setDate_envoi(String date_envoi) {
         this.date_envoi = date_envoi;
     }
 }

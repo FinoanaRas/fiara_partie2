@@ -36,4 +36,17 @@ public class FavorisController {
         }
         return "Vous ne pouvez pas faire ce requête";
     }
+
+    @GetMapping("/{token}/add/{id}/{idannonce}")
+    public int findByUserAndAnnonce(@PathVariable("token") String token ,@PathVariable("id") String idU, @PathVariable("idannonce") int idannonce){
+        Token tok = tokenRe.findIdUtilsateurFromToken(token); 
+        Long id =Long.valueOf(idU) ;
+        int iduser = id.intValue();
+        User user = userService.findUser(id);
+        if(tok!=null && tok.isValid(id) && user.getEtat()==10){
+            int result = favorisDao.findByUserAndAnnonce(iduser, idannonce);
+            return result;
+        }
+        return 0;
+    }
 }

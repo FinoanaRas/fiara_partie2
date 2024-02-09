@@ -18,6 +18,7 @@ import com.pack.fiaraoccaz.model.Picture;
 import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/picture")
 public class PictureController {

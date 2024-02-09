@@ -12,6 +12,7 @@ import com.pack.fiaraoccaz.model.Message;
 import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
