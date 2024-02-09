@@ -2,6 +2,7 @@ package com.pack.fiaraoccaz.entity;
  
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "annonce")
 public class Annonce{
