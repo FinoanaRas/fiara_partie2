@@ -1,5 +1,7 @@
 package com.pack.fiaraoccaz.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.pack.fiaraoccaz.model.Favoris;
@@ -23,6 +25,11 @@ public class FavorisDao {
         if(fav != null){
             result = 1;
         }
+        return result;
+    }
+
+    public List<Favoris> findAllByIduser(int iduser){
+        List<Favoris> result = favorisRepository.findAllByIduser(iduser);
         return result;
     }
 }

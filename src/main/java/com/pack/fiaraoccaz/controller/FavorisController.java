@@ -1,5 +1,7 @@
 package com.pack.fiaraoccaz.controller;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,5 +50,18 @@ public class FavorisController {
             return result;
         }
         return 0;
+    }
+
+    @GetMapping("/{token}/add/{id}")
+    public List<Favoris> findAllByIduser(@PathVariable("token") String token ,@PathVariable("id") String idU){
+        Token tok = tokenRe.findIdUtilsateurFromToken(token); 
+        Long id =Long.valueOf(idU) ;
+        int iduser = id.intValue();
+        User user = userService.findUser(id);
+        if(tok!=null && tok.isValid(id) && user.getEtat()==10){
+            List<Favoris> result = favorisDao.findAllByIduser(iduser);
+            return result;
+        }
+        return new ArrayList<>();
     }
 }
