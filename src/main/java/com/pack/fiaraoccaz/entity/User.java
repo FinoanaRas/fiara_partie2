@@ -36,7 +36,9 @@ public class User {
         this.password = password;
         this.etat = etat;
     }
-
+    public User(Long value) {
+        this.iduser = value;
+    }
     // Getters and Setters
 
     public Long getIdUser() {
