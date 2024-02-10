@@ -76,7 +76,7 @@ public class AnnonceController {
         Long id = Long.valueOf(idU);
     
         User user = userService.findUser(id);
-        if (tok != null && tok.isValid(id) && user.getEtat() == 10) {
+        if (tok != null && tok.isValid(id) && user.getEtat() == 5) {
             try {
                 Long idVoiture = comm.getVoiture().getIdVoiture(); // Récupérer l'ID de la voiture depuis l'annonce
                 annonceService.save(comm, idVoiture); // Appeler la méthode save avec l'ID de la voiture
