@@ -56,7 +56,15 @@ public class V_Annonce_2 {
     int status;
     @Column(name = "etat")
     int etat;
+    @Column(name = "utilisateur")
+    String utilisateur ;
 
+    public String getUtilisateur() {
+        return utilisateur;
+    }
+    public void setUtilisateur(String utilisateur) {
+        this.utilisateur = utilisateur;
+    }
     public int getIdannonce() {
         return idannonce;
     }
