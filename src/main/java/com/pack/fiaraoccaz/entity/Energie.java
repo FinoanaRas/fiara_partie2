@@ -40,4 +40,8 @@ public class Energie{
     public void setEnergie(String energie){
         this.energie = energie;
     }
+
+    public Energie(Long value) {
+        this.idenergie = value;
+    }
 }

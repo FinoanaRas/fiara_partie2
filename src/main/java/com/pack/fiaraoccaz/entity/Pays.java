@@ -38,4 +38,7 @@ public class Pays {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    public Pays(Long value) {
+        this.idpays = value;
+    }
 }

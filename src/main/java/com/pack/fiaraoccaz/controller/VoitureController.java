@@ -31,7 +31,7 @@ public class VoitureController {
         Token tok = tokenRepository.findIdUtilsateurFromToken(token);
         User user = userService.findUser(userId);
         
-        if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
+        if (tok != null && tok.isValid(userId) && user.getEtat() == 5) {
             voitureService.createVoiture(voiture);
             return ResponseEntity.ok("Voiture créée avec succès");
         }

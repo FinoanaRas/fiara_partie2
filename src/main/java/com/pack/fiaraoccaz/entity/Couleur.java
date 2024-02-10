@@ -38,4 +38,8 @@ public class Couleur {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public Couleur(Long value) {
+        this.idcouleur = value;
+    }
 }

@@ -38,4 +38,7 @@ public class Type {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    public Type(Long value) {
+        this.idtype = value;
+    }
 }
