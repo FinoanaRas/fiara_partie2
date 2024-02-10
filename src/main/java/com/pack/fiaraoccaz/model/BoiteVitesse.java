@@ -24,4 +24,7 @@ public class BoiteVitesse {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    public BoiteVitesse(int value) {
+        this.idBV = value;
+    }
 }
