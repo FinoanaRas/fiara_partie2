@@ -19,4 +19,9 @@ public class V_Annonce_2Dao {
         List<V_Annonce_2> result = va2.findAllByEtatAndStatus(etat, status);
         return result; 
     }
+
+    public List<V_Annonce_2> findAllByEtatAndStatusAndIduser(int etat, int status, int iduser){
+        List<V_Annonce_2> result = va2.findAllByEtatAndStatusAndIduser(etat, status, iduser);
+        return result; 
+    }
 }
