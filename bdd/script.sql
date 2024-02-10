@@ -107,10 +107,10 @@ create table favoris(
 
 -- VIEW --
 create or replace view v_annonce as
-select a.idannonce, a.iduser, v.idvoiture, v.type as idtype, t.nom as type, v.marque as idmarque, m.nom as marque, v.modele as idmodele, mo.nom as modele, v.energie as idenergie, e.energie, v.boite_vitesse as idbv, bv.nom as boite_vitesse, v.annee, v.kilometrage, v.prix, v.couleur as idcouleur, c.couleur, v.provenance as idpays, p.nom as provenance, v.nbplace, v.nbporte, a.etat
+select a.idannonce, v.iduser, v.idvoiture, v.type as idtype, t.nom as type, v.marque as idmarque, m.nom as marque, v.modele as idmodele, mo.nom as modele, v.energie as idenergie, e.energie, v.boite_vitesse as idbv, bv.nom as boite_vitesse, v.annee, v.kilometrage, v.prix, v.couleur as idcouleur, c.couleur, v.provenance as idpays, p.nom as provenance, v.nbplace, v.nbporte, a.etat , u.nom utilisateur
 from annonce a
 join voiture v on a.idvoiture = v.idvoiture
-join utilisateur u on a.iduser = u.iduser
+join utilisateur u on v.iduser = u.iduser
 join type t on v.type = t.idtype
 join marque m on v.marque = m.idmarque
 join modele mo on v.modele = mo.idmodele
