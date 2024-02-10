@@ -27,4 +27,6 @@ public class BoiteVitesse {
     public BoiteVitesse(int value) {
         this.idBV = value;
     }
+    public BoiteVitesse(){}
+
 }

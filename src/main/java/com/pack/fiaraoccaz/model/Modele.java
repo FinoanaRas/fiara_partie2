@@ -27,4 +27,5 @@ public class Modele {
     public Modele(int value) {
         this.idModele = value;
     }
+    public Modele(){}
 }
