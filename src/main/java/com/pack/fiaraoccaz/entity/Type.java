@@ -41,4 +41,14 @@ public class Type {
     public Type(Long value) {
         this.idtype = value;
     }
+
+    public void setId(String id){
+        Long l = Long.valueOf(id);
+        this.setIdType(l);
+    }
+
+    public Type(String id , String eneString){
+        this.setNom(eneString);
+        this.setId(id);
+    }
 }

@@ -42,4 +42,12 @@ public class Couleur {
     public Couleur(Long value) {
         this.idcouleur = value;
     }
+    public void setId(String value){
+        Long l = Long.valueOf(value);
+        this.setIdcouleur(l);
+    }
+    public Couleur(String value , String nom){
+        this.setId(value);
+        this.setNom(nom);
+    }
 }

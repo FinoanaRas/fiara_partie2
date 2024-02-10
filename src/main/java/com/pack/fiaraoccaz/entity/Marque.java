@@ -42,5 +42,16 @@ public class Marque {
     public Marque(Long value) {
         this.idmarque = value;
     }
+
+    public void setId(String id){
+        Long l = Long.valueOf(id);
+        this.setIdMarque(l);
+    }
+
+    public Marque(String id , String eneString){
+        this.setNom(eneString);
+        this.setId(id);
+    }
+
 }
 

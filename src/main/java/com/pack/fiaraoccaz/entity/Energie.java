@@ -44,4 +44,13 @@ public class Energie{
     public Energie(Long value) {
         this.idenergie = value;
     }
+    public void setId(String id){
+        Long l = Long.valueOf(id);
+        this.setIdEnergie(l);
+    }
+
+    public Energie(String id , String eneString){
+        this.setEnergie(eneString);
+        this.setId(id);
+    }
 }

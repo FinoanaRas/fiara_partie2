@@ -41,4 +41,14 @@ public class Pays {
     public Pays(Long value) {
         this.idpays = value;
     }
+
+    public void setId(String id){
+        Long l = Long.valueOf(id);
+        this.setIdPays(l);
+    }
+
+    public Pays(String id , String eneString){
+        this.setNom(eneString);
+        this.setId(id);
+    }
 }
