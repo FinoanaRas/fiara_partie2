@@ -41,6 +41,11 @@ public class EnergieController {
         return null; 
     }
 
+    @GetMapping("/getAll")
+    public List<Energie> getAllEnergies() throws Exception {
+            return energieService.getAllEnergies();
+    }
+
     @GetMapping("/{token}/getById/{id}/{idU}")
     public Optional<Energie> getEnergieById(@PathVariable Long id,
                                             @PathVariable("token") String token,

@@ -53,6 +53,11 @@ public class BoiteVitesseController {
         return new ArrayList<>();
     }
 
+    @GetMapping("/getall")
+    public List<BoiteVitesse> findall(){
+            return bvDao.findAll();
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
         bvDao.deleteById(id);

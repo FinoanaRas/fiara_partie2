@@ -53,6 +53,11 @@ public class FormController {
         return new ArrayList<>();
     }
 
+    @GetMapping("/getall")
+    public List<Form> findall(){
+            return typedao.findAll();
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
         typedao.deleteById(id);

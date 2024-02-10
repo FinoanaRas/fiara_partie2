@@ -36,6 +36,11 @@ public class PaysController {
         return null;  
     }
 
+    @GetMapping("/getAll")
+    public List<Pays> getAllPays() throws Exception {
+            return paysService.getAllPays();
+    }
+
     @GetMapping("/{token}/getById/{id}/{idU}")
     public Optional<Pays> getPaysById(@PathVariable Long id,
                                       @PathVariable("token") String token,

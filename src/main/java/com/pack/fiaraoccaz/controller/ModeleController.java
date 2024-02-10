@@ -56,6 +56,11 @@ public class ModeleController {
         return new ArrayList<>();
     }
 
+    @GetMapping("/getall")
+    public List<Modele> findall(){
+            return modeleDao.findAll();
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
         modeleDao.deleteById(id);

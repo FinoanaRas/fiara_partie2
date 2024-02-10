@@ -54,6 +54,11 @@ public class CouleurController {
         return null; 
     }
 
+    @GetMapping("/getAll")
+    public List<Couleur> getAllCouleurs() throws Exception {
+            return couleurService.getAllCouleurs();
+    }
+
     @GetMapping("/{token}/getById/{id}/{idU}")
     public Optional<Couleur> getCouleurById(@PathVariable Long id,
                                             @PathVariable("token") String token,

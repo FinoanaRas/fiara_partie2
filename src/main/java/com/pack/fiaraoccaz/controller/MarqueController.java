@@ -55,6 +55,11 @@ public class MarqueController {
         return null; 
     }
 
+    @GetMapping("/getAll")
+    public List<Marque> getAllMarques() throws Exception {
+            return marqueService.getAllMarques();
+    }
+
     @GetMapping("/{token}/getById/{id}/{idU}")
     public Optional<Marque> getMarqueById(@PathVariable Long id,
                                           @PathVariable("token") String token,
