@@ -13,7 +13,7 @@ import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
 @CrossOrigin(origins = "*")
-@RestController
+@RestController 
 @RequestMapping("/v_annonce_2")
 public class V_Annonce_2Controller {
     private V_Annonce_2Dao vaDao;
@@ -32,7 +32,7 @@ public class V_Annonce_2Controller {
         Long id =Long.valueOf(idU);
 
         User user = userService.findUser(id);
-        if(tok!=null && tok.isValid(id) && user.getEtat()==10){
+        if(tok!=null && tok.isValid(id) && (user.getEtat()==5 || user.getEtat()==10)){
             return vaDao.findAllByEtatAndStatus(etat, status);
         }
         return new ArrayList<>();
