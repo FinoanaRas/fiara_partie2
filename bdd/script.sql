@@ -132,6 +132,20 @@ join boite_vitesse bv on v.boite_vitesse = bv.idbv
 join couleur c on v.couleur = c.idcouleur
 join pays p on v.provenance = p.idpays;
 
+create or replace view v_favoris as
+select f.idfavoris, f.iduser as userfav, a.idannonce, v.iduser,v.idvoiture, v.type as idtype, t.nom as type, v.marque as idmarque, m.nom as marque, v.modele as idmodele, mo.nom as modele, v.energie as idenergie, e.energie, v.boite_vitesse as idbv, bv.nom as boite_vitesse, v.annee, v.kilometrage, v.prix, v.couleur as idcouleur, c.couleur, v.provenance as idpays, p.nom as provenance, v.nbplace, v.nbporte, v.status, a.etat ,u.nom utilisateur
+from favoris f
+join annonce a on f.idannonce = a.idannonce
+join voiture v on a.idvoiture = v.idvoiture
+join utilisateur u on v.iduser = u.iduser
+join type t on v.type = t.idtype
+join marque m on v.marque = m.idmarque
+join modele mo on v.modele = mo.idmodele
+join energie e on v.energie = e.idenergie
+join boite_vitesse bv on v.boite_vitesse = bv.idbv
+join couleur c on v.couleur = c.idcouleur
+join pays p on v.provenance = p.idpays;
+
 create or replace view v_stat_type as
 select v.type as idtype, t.nom as type, count(v.status) as nombre, v.status
 from voiture v
