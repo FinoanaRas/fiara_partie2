@@ -2,11 +2,6 @@ package com.pack.fiaraoccaz.entity;
 import java.text.CollationElementIterator;
 import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 @Entity
 @Table(name = "marque")
 public class Marque {
@@ -42,6 +37,10 @@ public class Marque {
     }
     public void setNom(String nom){
         this.nom = nom;
+    }
+
+    public Marque(Long value) {
+        this.idmarque = value;
     }
 }
 

@@ -71,6 +71,9 @@ public class Voiture {
     public Voiture() {
 
     }
+    public Voiture(Long value) {
+        this.idVoiture = value;
+    }
 
     // Constructeur avec des paramètres
     public Voiture(Long idVoiture, Type type, Marque marque, Modele modele, Energie energie, BoiteVitesse boiteVitesse,
