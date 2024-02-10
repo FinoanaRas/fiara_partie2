@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "https://earnest-gumption-0c0eac.netlify.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/couleurs")
 public class CouleurController {

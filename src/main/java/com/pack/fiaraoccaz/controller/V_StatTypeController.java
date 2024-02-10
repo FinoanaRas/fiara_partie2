@@ -13,7 +13,7 @@ import com.pack.fiaraoccaz.model.V_StatType;
 import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
-@CrossOrigin(origins = "https://earnest-gumption-0c0eac.netlify.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v_stat_type")
 public class V_StatTypeController {

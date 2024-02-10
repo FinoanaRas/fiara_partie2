@@ -14,7 +14,7 @@ import com.pack.fiaraoccaz.model.Form;
 import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
-@CrossOrigin(origins = "https://earnest-gumption-0c0eac.netlify.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/form")
 public class FormController {

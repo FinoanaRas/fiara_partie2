@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://earnest-gumption-0c0eac.netlify.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/chiffre-affaire")
 public class ChiffreAffaireController {

@@ -14,7 +14,7 @@ import com.pack.fiaraoccaz.model.BoiteVitesse;
 import com.pack.fiaraoccaz.repository.TokenRepository;
 import com.pack.fiaraoccaz.service.UserService;
 
-@CrossOrigin(origins = "https://earnest-gumption-0c0eac.netlify.app")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/bv")
 public class BoiteVitesseController {
