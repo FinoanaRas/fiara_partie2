@@ -37,6 +37,7 @@ public class V_Annonce_2Controller {
         Long id =Long.valueOf(idU);
         int iduser = id.intValue();
 
+        System.out.println();
         User user = userService.findUser(id);
         if(tok!=null && tok.isValid(id) && user.getEtat()==5){
             return vaDao.findAllByEtatAndStatusAndIduser(etat, status, iduser);
