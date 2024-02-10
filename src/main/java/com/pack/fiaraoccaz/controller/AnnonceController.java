@@ -152,6 +152,16 @@ public ResponseEntity<Annonce> findById(@PathVariable int id, @PathVariable("tok
     }
 }
 
+@GetMapping("/getOne/{id}")
+public ResponseEntity<Annonce> findByIdPub(@PathVariable int id) {
+    try {
+            Annonce result = annonceService.findById(id);
+            return ResponseEntity.ok(result);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+}
+
 
         @PutMapping("/{id}")
         public ResponseEntity<Annonce> updateById(@PathVariable Long id, @RequestBody Annonce updatedAnnonce, @RequestHeader("token") String token, @RequestHeader("id") String idU) {
