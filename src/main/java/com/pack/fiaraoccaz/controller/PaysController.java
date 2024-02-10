@@ -30,7 +30,7 @@ public class PaysController {
         Long id = Long.valueOf(idU);
 
         User user = userService.findUser(id);
-        if (tok != null && tok.isValid(id) && user.getEtat() == 10) {
+        if (tok != null && tok.isValid(id) && user.getEtat() >= 5) {
             return paysService.getAllPays();
         }
         return null;  
@@ -44,7 +44,7 @@ public class PaysController {
         id = Long.valueOf(idU);
 
         User user = userService.findUser(id);
-        if (tok != null && tok.isValid(id) && user.getEtat() >= 5) {
+        if (tok != null && tok.isValid(id) && user.getEtat() == 10) {
             return paysService.getPaysById(id);
         }
         return Optional.empty(); 
