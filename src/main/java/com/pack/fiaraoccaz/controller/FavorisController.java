@@ -30,7 +30,7 @@ public class FavorisController {
         Long id =Long.valueOf(idU) ;
 
         User user = userService.findUser(id);
-        if(tok!=null && tok.isValid(id) && user.getEtat()==10){
+        if(tok!=null && tok.isValid(id) && user.getEtat()==5){
             favorisDao.save(fav);
             return "Réussie";
         }
