@@ -24,4 +24,7 @@ public class Modele {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    public Modele(int value) {
+        this.idModele = value;
+    }
 }
