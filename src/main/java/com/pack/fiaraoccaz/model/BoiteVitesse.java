@@ -24,4 +24,11 @@ public class BoiteVitesse {
     public void setNom(String nom) {
         this.nom = nom;
     }
+<<<<<<< Updated upstream
+=======
+    public BoiteVitesse(int value) {
+        this.idBV = value;
+    }
+    public BoiteVitesse(){}
+>>>>>>> Stashed changes
 }
