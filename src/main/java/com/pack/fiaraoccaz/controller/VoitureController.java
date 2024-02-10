@@ -44,7 +44,7 @@ public class VoitureController {
         Token tok = tokenRepository.findIdUtilsateurFromToken(token);
         User user = userService.findUser(userId);
         
-        if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
+        if (tok != null && tok.isValid(userId) && (user.getEtat() == 5 || user.getEtat()==10)) {
             List<Voiture> voitures = voitureService.getAllVoitures();
             return ResponseEntity.ok(voitures);
         }
