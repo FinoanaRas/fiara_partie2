@@ -17,93 +17,93 @@ import java.util.List;
 @RequestMapping("/api/voitures")
 public class VoitureController {
 
-    // @Autowired
-    // private VoitureService voitureService;
+    @Autowired
+    private VoitureService voitureService;
     
-    // @Autowired
-    // private TokenRepository tokenRepository;
+    @Autowired
+    private TokenRepository tokenRepository;
     
-    // @Autowired
-    // private UserService userService;
+    @Autowired
+    private UserService userService;
 
-    // @PostMapping("/{token}/create/{id}")
-    // public ResponseEntity<String> createVoiture(@RequestBody Voiture voiture, @PathVariable("token") String token, @PathVariable("id") Long userId) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
-    //     User user = userService.findUser(userId);
+    @PostMapping("/{token}/create/{id}")
+    public ResponseEntity<String> createVoiture(@RequestBody Voiture voiture, @PathVariable("token") String token, @PathVariable("id") Long userId) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+        User user = userService.findUser(userId);
         
-    //     if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
-    //         voitureService.createVoiture(voiture);
-    //         return ResponseEntity.ok("Voiture créée avec succès");
-    //     }
+        if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
+            voitureService.createVoiture(voiture);
+            return ResponseEntity.ok("Voiture créée avec succès");
+        }
         
-    //     return ResponseEntity.badRequest().body("Vous n'avez pas les autorisations nécessaires pour effectuer cette action.");
-    // }
+        return ResponseEntity.badRequest().body("Vous n'avez pas les autorisations nécessaires pour effectuer cette action.");
+    }
 
-    // @GetMapping("/{token}/getAll/{id}")
-    // public ResponseEntity<List<Voiture>> getAllVoitures(@PathVariable("token") String token, @PathVariable("id") Long userId) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
-    //     User user = userService.findUser(userId);
+    @GetMapping("/{token}/getAll/{id}")
+    public ResponseEntity<List<Voiture>> getAllVoitures(@PathVariable("token") String token, @PathVariable("id") Long userId) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+        User user = userService.findUser(userId);
         
-    //     if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
-    //         List<Voiture> voitures = voitureService.getAllVoitures();
-    //         return ResponseEntity.ok(voitures);
-    //     }
+        if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
+            List<Voiture> voitures = voitureService.getAllVoitures();
+            return ResponseEntity.ok(voitures);
+        }
         
-    //     return ResponseEntity.badRequest().build();
-    // }
+        return ResponseEntity.badRequest().build();
+    }
 
-    // @GetMapping("/{token}/getByUser/{id}")
-    // public ResponseEntity<List<Voiture>> getVoituresByUserId(@PathVariable("token") String token, @PathVariable("id") Long userId) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
-    //     User user = userService.findUser(userId);
+    @GetMapping("/{token}/getByUser/{id}")
+    public ResponseEntity<List<Voiture>> getVoituresByUserId(@PathVariable("token") String token, @PathVariable("id") Long userId) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+        User user = userService.findUser(userId);
         
-    //     if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
-    //         List<Voiture> voitures = voitureService.getVoituresByUserId(userId);
-    //         return ResponseEntity.ok(voitures);
-    //     }
+        if (tok != null && tok.isValid(userId) && user.getEtat() == 10) {
+            List<Voiture> voitures = voitureService.getVoituresByUserId(user);
+            return ResponseEntity.ok(voitures);
+        }
         
-    //     return ResponseEntity.badRequest().build();
-    // }
+        return ResponseEntity.badRequest().build();
+    }
 
-    // @DeleteMapping("/{token}/delete/{id}")
-    // public ResponseEntity<Void> deleteVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+    @DeleteMapping("/{token}/delete/{id}")
+    public ResponseEntity<Void> deleteVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
         
-    //     if (tok != null && tok.isValid(voitureId)) {
-    //         voitureService.deleteVoiture(voitureId);
-    //         return ResponseEntity.noContent().build();
-    //     }
+        if (tok != null && tok.isValid(voitureId)) {
+            voitureService.deleteVoiture(voitureId);
+            return ResponseEntity.noContent().build();
+        }
         
-    //     return ResponseEntity.badRequest().build();
-    // }
+        return ResponseEntity.badRequest().build();
+    }
 
-    // @GetMapping("/{token}/get/{id}")
-    // public ResponseEntity<Voiture> getVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+    @GetMapping("/{token}/get/{id}")
+    public ResponseEntity<Voiture> getVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
         
-    //     if (tok != null && tok.isValid(voitureId)) {
-    //         Voiture voiture = voitureService.getVoitureById(voitureId).orElse(null);
-    //         if (voiture != null) {
-    //             return ResponseEntity.ok(voiture);
-    //         }
-    //     }
+        if (tok != null && tok.isValid(voitureId)) {
+            Voiture voiture = voitureService.getVoitureById(voitureId).orElse(null);
+            if (voiture != null) {
+                return ResponseEntity.ok(voiture);
+            }
+        }
         
-    //     return ResponseEntity.notFound().build();
-    // }
+        return ResponseEntity.notFound().build();
+    }
 
-    // @PutMapping("/{token}/update/{id}")
-    // public ResponseEntity<Void> updateVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId, @RequestBody Voiture updatedVoiture) {
-    //     Token tok = tokenRepository.findIdUtilsateurFromToken(token);
+    @PutMapping("/{token}/update/{id}")
+    public ResponseEntity<Void> updateVoitureById(@PathVariable("token") String token, @PathVariable("id") Long voitureId, @RequestBody Voiture updatedVoiture) {
+        Token tok = tokenRepository.findIdUtilsateurFromToken(token);
         
-    //     if (tok != null && tok.isValid(voitureId)) {
-    //         Voiture voiture = voitureService.getVoitureById(voitureId).orElse(null);
-    //         if (voiture != null) {
-    //             voitureService.updateVoiture(voitureId, updatedVoiture);
-    //             return ResponseEntity.noContent().build();
-    //         }
-    //     }
+        if (tok != null && tok.isValid(voitureId)) {
+            Voiture voiture = voitureService.getVoitureById(voitureId).orElse(null);
+            if (voiture != null) {
+                voitureService.updateVoiture(voitureId, updatedVoiture);
+                return ResponseEntity.noContent().build();
+            }
+        }
         
-    //     return ResponseEntity.badRequest().build();
-    // }
+        return ResponseEntity.badRequest().build();
+    }
 }
 
