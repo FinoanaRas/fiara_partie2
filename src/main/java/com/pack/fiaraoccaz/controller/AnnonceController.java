@@ -113,6 +113,22 @@ public class AnnonceController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
+
+    @GetMapping("/{token}/getByUser/{id}")
+    public ResponseEntity<List<Annonce>> findAllByUser(
+            @PathVariable("token") String token,
+            @PathVariable("id") String idU) throws Exception {
+        Token tok = tokenRe.findIdUtilsateurFromToken(token);
+        Long id = Long.valueOf(idU);
+    
+        User user = userService.findUser(id);
+        if (tok != null && tok.isValid(id) && user.getEtat() >= 5) {
+            List<Annonce> annonces = annonceService.getAnnoncesByUser(id);
+            return ResponseEntity.ok(annonces);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
     
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteById(@PathVariable int id, @RequestHeader("token") String token, @RequestHeader("id") String idU) {
